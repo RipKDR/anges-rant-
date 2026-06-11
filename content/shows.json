@@ -1,0 +1,5 @@
+{
+  "_editing": "Add upcoming gigs to the 'upcoming' array. Use ISO dates (YYYY-MM-DD). 'ticketUrl' is optional — when present a Tickets button is shown. Past shows can be moved to 'past' to build the band's history.",
+  "upcoming": [],
+  "past": []
+}

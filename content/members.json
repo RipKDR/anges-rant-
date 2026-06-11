@@ -1,0 +1,35 @@
+{
+  "_editing": "Add member photos to /public/members and set 'photo' to the path (e.g. \"/members/angelo.jpg\"). When 'photo' is empty the site renders a styled initials badge.",
+  "members": [
+    {
+      "name": "Angelo Pisano",
+      "role": "Bass & Bandleader",
+      "photo": "",
+      "blurb": "The man behind the Rant. Years of holding down the groove in Melbourne cover bands led Ange to build something of his own — a love letter to the funk that raised him."
+    },
+    {
+      "name": "Chris Birdman",
+      "role": "Vocals",
+      "photo": "",
+      "blurb": "The voice on top of the groove — equal parts soul and cheek."
+    },
+    {
+      "name": "Alexandre Lourie",
+      "role": "Saxophones, Flute & Keys",
+      "photo": "",
+      "blurb": "Horns, flute and keys — the colour and shine in every track."
+    },
+    {
+      "name": "John Azzopardi",
+      "role": "Guitar",
+      "photo": "",
+      "blurb": "Tight, funky rhythm guitar with riffs straight out of the golden era."
+    },
+    {
+      "name": "Lou Harbis",
+      "role": "Drums",
+      "photo": "",
+      "blurb": "The engine room. If your feet are moving, that's Lou's doing."
+    }
+  ]
+}

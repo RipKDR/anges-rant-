@@ -1,0 +1,23 @@
+{
+  "_editing": "Add new releases to the front of the 'releases' array. The first release is featured on the home page. Add cover art to /public/releases and set 'cover' to its path (e.g. \"/releases/another-time.jpg\") — when 'cover' is empty the site renders a styled vinyl disc instead. Per-track 'links' and 'duration' are optional.",
+  "releases": [
+    {
+      "slug": "another-time",
+      "title": "Another Time",
+      "type": "Album",
+      "year": "2024",
+      "cover": "",
+      "description": "The debut 13-track digital album from Ange's Rant — a homage to the artists that shaped Ange's musical journey, made possible by the creative contribution and skills of his talented musician friends. Funk, soul and disco/pop with an 80's flavour, front to back.",
+      "links": [
+        { "platform": "spotify", "label": "Spotify", "url": "https://open.spotify.com/search/Ange's%20Rant%20Another%20Time" },
+        { "platform": "applemusic", "label": "Apple Music", "url": "https://music.apple.com/" },
+        { "platform": "youtube", "label": "YouTube", "url": "https://www.youtube.com/results?search_query=Ange%27s+Rant" },
+        { "platform": "store", "label": "Buy tracks — AU $1.99 each", "url": "https://angesrant.com/music" }
+      ],
+      "tracks": [
+        { "title": "Fun Cool", "duration": "", "links": [{ "platform": "store", "label": "Listen", "url": "https://angesrant.com/track/4204817/fun-cool" }] }
+      ],
+      "_tracksNote": "Add the remaining 12 tracks of Another Time here as they should appear, e.g. { \"title\": \"Track Name\", \"duration\": \"3:45\", \"links\": [] }"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "_editing": "This file is the single source of truth for band info, links and socials. Edit values here and redeploy — no code changes needed. Fields starting with an underscore are notes and are ignored by the site.",
+  "name": "Ange's Rant",
+  "tagline": "Funk. Soul. Disco. Made to keep you movin'.",
+  "location": "Melbourne, Australia",
+  "shortBio": "Groove-based sounds from Melbourne — funk and soul with a splash of disco/pop and an 80's flavour. Always quirky, always fun, with one mission: keeping you movin'.",
+  "bio": [
+    "Ange's Rant is the brainchild of Angelo Pisano, a bass player from Melbourne, Australia. After many years holding down the low end in cover bands, Ange decided it was time to pay homage to the artists that shaped his musical journey — and to do it his way.",
+    "The result is groove-based music that touches on funk, soul and disco/pop with an unmistakable 80's flavour. It's quirky, it's fun, and it's built from the ground up to keep you movin'.",
+    "The debut digital album, Another Time, is a 13-track release made possible by the creative contribution and skills of Ange's talented musician friends."
+  ],
+  "_contactNote": "Replace with the band's real booking/contact email.",
+  "contactEmail": "bookings@angesrant.com",
+  "_socialsNote": "Update each url with the band's real profile links. Items with showInHeader true appear in the top navigation; everything appears in the footer and follow sections.",
+  "socials": [
+    { "platform": "spotify", "label": "Spotify", "url": "https://open.spotify.com/search/Ange's%20Rant", "showInHeader": true },
+    { "platform": "youtube", "label": "YouTube", "url": "https://www.youtube.com/results?search_query=Ange%27s+Rant", "showInHeader": true },
+    { "platform": "instagram", "label": "Instagram", "url": "https://www.instagram.com/", "showInHeader": true },
+    { "platform": "facebook", "label": "Facebook", "url": "https://www.facebook.com/", "showInHeader": false },
+    { "platform": "applemusic", "label": "Apple Music", "url": "https://music.apple.com/", "showInHeader": false },
+    { "platform": "bandcamp", "label": "Bandcamp", "url": "https://bandcamp.com/", "showInHeader": false }
+  ]
+}

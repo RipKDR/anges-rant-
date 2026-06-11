@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0a0414;
+  --color-night-soft: #140a26;
+  --color-groove-pink: #ff2ea6;
+  --color-groove-orange: #ff7a18;
+  --color-groove-gold: #ffd166;
+  --color-groove-violet: #8b5cf6;
+  --font-display: var(--font-righteous), sans-serif;
+  --font-body: var(--font-outfit), sans-serif;
+  --animate-spin-slow: spin 9s linear infinite;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-22px) scale(1.04);
+    }
+  }
+}
+
+body {
+  background-color: var(--color-night);
+  color: #f4f0fa;
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-groove-pink);
+  color: var(--color-night);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Signature gradient text used for headings and the wordmark */
+.text-groove {
+  background: linear-gradient(
+    100deg,
+    var(--color-groove-gold) 0%,
+    var(--color-groove-orange) 35%,
+    var(--color-groove-pink) 70%,
+    var(--color-groove-violet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-groove {
+  background: linear-gradient(
+    100deg,
+    var(--color-groove-orange),
+    var(--color-groove-pink)
+  );
+}
+
+.glow-pink {
+  box-shadow: 0 0 28px rgba(255, 46, 166, 0.45);
+}
+
+/* Subtle film-grain overlay to give the dark theme texture */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vinyl record rendered in CSS for releases without cover art */
+.vinyl {
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 50% 50%, #1a1a1f 0 17%, transparent 17.5%),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      #111114 0 2px,
+      #1c1c22 2px 4px
+    );
+  box-shadow:
+    inset 0 0 36px rgba(0, 0, 0, 0.85),
+    0 18px 60px rgba(255, 46, 166, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
