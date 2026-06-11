@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { shows, formatShowDate, site } from "@/lib/content";
+import Link from "next/link";
+import { shows, formatShowDate } from "@/lib/content";
 import FollowSection from "@/components/FollowSection";
 
 export const metadata: Metadata = {
@@ -61,15 +62,15 @@ export default function ShowsPage() {
               The stage is being warmed up.
             </p>
             <p className="mx-auto mt-4 max-w-md text-white/50">
-              No gigs announced right now — but the groove never sleeps. Follow
-              us below or get in touch about booking the band.
+              No gigs announced right now — but the groove never sleeps. Get in
+              touch about booking the band.
             </p>
-            <a
-              href={`mailto:${site.contactEmail}?subject=Booking%20enquiry%20—%20Ange's%20Rant`}
+            <Link
+              href="/contact"
               className="bg-groove glow-pink mt-8 inline-block rounded-full px-8 py-4 font-bold uppercase tracking-wider text-night transition-transform hover:scale-105"
             >
               Book the band
-            </a>
+            </Link>
           </div>
         )}
 

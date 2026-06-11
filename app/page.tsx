@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site, featuredRelease, members, shows, formatShowDate } from "@/lib/content";
+import { site, featuredRelease, members, shows, formatShowDate, releaseMeta } from "@/lib/content";
 import Marquee from "@/components/Marquee";
 import VinylDisc from "@/components/VinylDisc";
 import ListenButtons from "@/components/ListenButtons";
@@ -76,10 +76,7 @@ export default function HomePage() {
                 {featuredRelease.title}
               </h2>
               <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-white/40">
-                {featuredRelease.type} · {featuredRelease.year} ·{" "}
-                {featuredRelease.tracks.length > 1
-                  ? `${featuredRelease.tracks.length} tracks`
-                  : "13 tracks"}
+                {releaseMeta(featuredRelease)}
               </p>
               <p className="mt-6 text-white/70">{featuredRelease.description}</p>
               <div className="mt-8">

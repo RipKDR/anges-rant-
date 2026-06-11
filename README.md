@@ -45,12 +45,38 @@ Typical workflows:
   those fields are empty the site renders styled fallbacks (initial badges
   and a spinning vinyl), so nothing ever looks broken.
 
-### ⚠️ Placeholder links to replace
+### Going-live checklist
 
-The social and streaming URLs in `content/site.json` and
-`content/releases.json` are search-page placeholders. Replace them with the
-band's real profile URLs (Spotify artist page, Instagram, Facebook, YouTube,
-Apple Music, Bandcamp) and the real booking email — it's a one-file edit.
+The site ships with **only verified, real links** (the official store at
+angesrant.com/music and the Fun Cool track page). Everything else is
+data-driven and appears automatically once added:
+
+- **Social/streaming profiles** — when the band's Spotify, Instagram,
+  Facebook, YouTube etc. go live, add each to `socials` in
+  `content/site.json`. Icons, header, footer and the "Take the groove with
+  you" sections all pick them up instantly.
+- **Booking email** — set `contactEmail` in `content/site.json` and the
+  Contact page switches from the store link to direct booking/fan-mail
+  cards, and email CTAs appear site-wide.
+- **Tracklist** — the remaining *Another Time* tracks go in
+  `content/releases.json`; until then the site links to the full album on
+  the store.
+- **Domain note** — store links point at `angesrant.com/music` (the current
+  Bandzoogle store). If you later point the `angesrant.com` domain at this
+  site, first move the store to its Bandzoogle subdomain (or another shop)
+  and update the URLs in `content/`.
+
+## Deploying to Vercel
+
+1. Go to [vercel.com/new](https://vercel.com/new) and sign in with the
+   GitHub account that owns this repo.
+2. Import **RipKDR/anges-rant-** — Vercel auto-detects Next.js; no
+   configuration needed. Click **Deploy**.
+3. Every future push to the default branch redeploys automatically.
+4. Optional: set `NEXT_PUBLIC_SITE_URL` (e.g. `https://angesrant.com`) in
+   Project → Settings → Environment Variables so the sitemap, robots.txt
+   and social-share metadata use the final domain, then add the custom
+   domain under Project → Settings → Domains.
 
 ## Spotify integration
 

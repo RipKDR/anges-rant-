@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { releases } from "@/lib/content";
+import { releases, releaseMeta } from "@/lib/content";
 import VinylDisc from "@/components/VinylDisc";
 import ListenButtons from "@/components/ListenButtons";
 import FollowSection from "@/components/FollowSection";
@@ -49,7 +49,7 @@ export default function MusicPage() {
 
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-groove-gold">
-                {release.type} · {release.year}
+                {releaseMeta(release)}
               </p>
               <h2 className="font-display mt-3 text-4xl text-white sm:text-5xl">
                 {release.title}
@@ -95,6 +95,19 @@ export default function MusicPage() {
                       </li>
                     ))}
                   </ol>
+                  {release.totalTracks &&
+                    release.tracks.length < release.totalTracks &&
+                    release.links[0] && (
+                      <a
+                        href={release.links[0].url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block text-sm font-semibold text-groove-pink underline-offset-4 transition-colors hover:text-groove-orange hover:underline"
+                      >
+                        Hear all {release.totalTracks} tracks on the official
+                        store →
+                      </a>
+                    )}
                 </div>
               )}
             </div>

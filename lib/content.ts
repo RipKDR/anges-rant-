@@ -16,6 +16,7 @@ export type Site = {
   location: string;
   shortBio: string;
   bio: string[];
+  /** Optional — contact/booking CTAs only render when this is set. */
   contactEmail: string;
   socials: SocialLink[];
 };
@@ -32,12 +33,21 @@ export type Release = {
   slug: string;
   title: string;
   type: string;
-  year: string;
+  year?: string;
+  totalTracks?: number;
   cover?: string;
   description: string;
   links: TrackLink[];
   tracks: Track[];
 };
+
+/** "Album · 2024 · 13 tracks" from whichever fields are actually set. */
+export function releaseMeta(release: Release): string {
+  const parts = [release.type];
+  if (release.year) parts.push(release.year);
+  if (release.totalTracks) parts.push(`${release.totalTracks} tracks`);
+  return parts.join(" · ");
+}
 
 export type Show = {
   date: string;

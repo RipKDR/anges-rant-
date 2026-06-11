@@ -1,5 +1,5 @@
 {
-  "_editing": "This file is the single source of truth for band info, links and socials. Edit values here and redeploy — no code changes needed. Fields starting with an underscore are notes and are ignored by the site.",
+  "_editing": "This file is the single source of truth for band info, links and socials. Edit values here and redeploy — no code changes needed. Fields starting with an underscore are notes and are ignored by the site. Only list channels that actually exist — every entry here renders as a live link. When the band's Spotify/Instagram/Facebook/YouTube profiles go live, add them like: { \"platform\": \"spotify\", \"label\": \"Spotify\", \"url\": \"https://open.spotify.com/artist/<id>\", \"showInHeader\": true }. Supported platform icons: spotify, applemusic, youtube, instagram, facebook, bandcamp, store, email.",
   "name": "Ange's Rant",
   "tagline": "Funk. Soul. Disco. Made to keep you movin'.",
   "location": "Melbourne, Australia",
@@ -9,15 +9,14 @@
     "The result is groove-based music that touches on funk, soul and disco/pop with an unmistakable 80's flavour. It's quirky, it's fun, and it's built from the ground up to keep you movin'.",
     "The debut digital album, Another Time, is a 13-track release made possible by the creative contribution and skills of Ange's talented musician friends."
   ],
-  "_contactNote": "Replace with the band's real booking/contact email.",
-  "contactEmail": "bookings@angesrant.com",
-  "_socialsNote": "Update each url with the band's real profile links. Items with showInHeader true appear in the top navigation; everything appears in the footer and follow sections.",
+  "_contactNote": "Optional. When set, booking/contact cards and buttons appear across the site. Leave empty until the band has a real inbox for enquiries.",
+  "contactEmail": "",
   "socials": [
-    { "platform": "spotify", "label": "Spotify", "url": "https://open.spotify.com/search/Ange's%20Rant", "showInHeader": true },
-    { "platform": "youtube", "label": "YouTube", "url": "https://www.youtube.com/results?search_query=Ange%27s+Rant", "showInHeader": true },
-    { "platform": "instagram", "label": "Instagram", "url": "https://www.instagram.com/", "showInHeader": true },
-    { "platform": "facebook", "label": "Facebook", "url": "https://www.facebook.com/", "showInHeader": false },
-    { "platform": "applemusic", "label": "Apple Music", "url": "https://music.apple.com/", "showInHeader": false },
-    { "platform": "bandcamp", "label": "Bandcamp", "url": "https://bandcamp.com/", "showInHeader": false }
+    {
+      "platform": "store",
+      "label": "Official Music Store",
+      "url": "https://angesrant.com/music",
+      "showInHeader": true
+    }
   ]
 }

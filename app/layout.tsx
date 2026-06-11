@@ -16,7 +16,10 @@ const righteous = Righteous({
   variable: "--font-righteous",
 });
 
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://angesrant.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE),
   title: {
     default: `${site.name} — Funk, Soul & Disco from Melbourne`,
     template: `%s | ${site.name}`,
@@ -36,12 +39,36 @@ export const metadata: Metadata = {
   },
 };
 
+// schema.org MusicGroup data so search engines understand who the band is
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  name: site.name,
+  description: site.shortBio,
+  genre: ["Funk", "Soul", "Disco"],
+  foundingLocation: {
+    "@type": "Place",
+    name: site.location,
+  },
+  url: BASE,
+  album: {
+    "@type": "MusicAlbum",
+    name: "Another Time",
+    numTracks: 13,
+    byArtist: site.name,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${righteous.variable}`}>
       <body className="grain min-h-screen antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />
