@@ -130,7 +130,7 @@ export default function HomePage() {
                 <Link
                   key={member.name}
                   href="/band"
-                  className="group rounded-2xl border border-white/10 bg-night/60 p-4 text-center transition-all hover:-translate-y-1 hover:border-groove-pink/50"
+                  className="group rounded-2xl border border-white/10 bg-night/60 p-4 text-center transition-all hover:-translate-y-1 hover:border-groove-pink/50 hover:shadow-[0_8px_30px_rgba(255,46,166,0.15)]"
                 >
                   <span className="bg-groove mx-auto flex h-14 w-14 items-center justify-center rounded-full font-display text-lg text-night">
                     {member.name

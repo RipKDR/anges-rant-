@@ -32,6 +32,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-night);
   color: #f4f0fa;

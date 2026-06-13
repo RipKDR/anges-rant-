@@ -14,18 +14,22 @@ export const metadata: Metadata = {
 export default function MusicPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
-          Discography
-        </p>
-        <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">
-          The Music
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-white/70">
-          Every track is a homage to the artists that shaped the journey —
-          played loud, with love, and built to keep you movin&apos;.
-        </p>
-      </section>
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -left-32 -top-16 h-80 w-80 rounded-full bg-groove-violet/20 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-20 top-20 h-72 w-72 rounded-full bg-groove-pink/15 blur-3xl" aria-hidden="true" />
+        <section className="relative mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
+            Discography
+          </p>
+          <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">
+            The Music
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-white/70">
+            Every track is a homage to the artists that shaped the journey —
+            played loud, with love, and built to keep you movin&apos;.
+          </p>
+        </section>
+      </div>
 
       {releases.map((release) => (
         <section
@@ -69,7 +73,7 @@ export default function MusicPage() {
                     {release.tracks.map((track, i) => (
                       <li
                         key={track.title}
-                        className="group flex items-center gap-4 py-3"
+                        className="group -mx-3 flex items-center gap-4 rounded-xl px-3 py-3 transition-colors hover:bg-white/[0.04]"
                       >
                         <span className="font-display w-8 text-groove-pink">
                           {String(i + 1).padStart(2, "0")}

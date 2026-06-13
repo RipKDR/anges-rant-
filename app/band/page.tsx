@@ -11,19 +11,23 @@ export const metadata: Metadata = {
 export default function BandPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
-          The story
-        </p>
-        <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">
-          The Band
-        </h1>
-        <div className="mt-8 max-w-3xl space-y-5 text-lg text-white/70">
-          {site.bio.map((paragraph) => (
-            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-          ))}
-        </div>
-      </section>
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -left-32 -top-16 h-80 w-80 rounded-full bg-groove-orange/15 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-20 top-16 h-72 w-72 rounded-full bg-groove-violet/20 blur-3xl" aria-hidden="true" />
+        <section className="relative mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
+            The story
+          </p>
+          <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">
+            The Band
+          </h1>
+          <div className="mt-8 max-w-3xl space-y-5 text-lg text-white/70">
+            {site.bio.map((paragraph) => (
+              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <h2 className="font-display text-3xl text-white sm:text-4xl">

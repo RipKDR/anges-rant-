@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { shows, formatShowDate } from "@/lib/content";
 import FollowSection from "@/components/FollowSection";
+import { MusicNoteIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Shows",
@@ -11,12 +12,16 @@ export const metadata: Metadata = {
 export default function ShowsPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
-          Live
-        </p>
-        <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">Shows</h1>
-      </section>
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -left-32 -top-16 h-80 w-80 rounded-full bg-groove-pink/15 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-20 top-8 h-72 w-72 rounded-full bg-groove-orange/15 blur-3xl" aria-hidden="true" />
+        <section className="relative mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
+            Live
+          </p>
+          <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">Shows</h1>
+        </section>
+      </div>
 
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         {shows.upcoming.length > 0 ? (
@@ -58,6 +63,9 @@ export default function ShowsPage() {
           </ul>
         ) : (
           <div className="rounded-3xl border border-dashed border-white/15 px-8 py-20 text-center">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-night-soft/80">
+              <MusicNoteIcon className="h-8 w-8 text-groove-pink/70" />
+            </div>
             <p className="font-display text-3xl text-white/85 sm:text-4xl">
               The stage is being warmed up.
             </p>
