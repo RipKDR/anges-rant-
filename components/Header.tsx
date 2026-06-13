@@ -38,8 +38,10 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium uppercase tracking-widest transition-colors hover:text-groove-pink ${
-                  active ? "text-groove-pink" : "text-white/70"
+                className={`border-b-2 pb-0.5 text-sm font-medium uppercase tracking-widest transition-colors hover:text-groove-pink ${
+                  active
+                    ? "border-groove-pink text-groove-pink"
+                    : "border-transparent text-white/70"
                 }`}
               >
                 {item.label}
@@ -77,20 +79,23 @@ export default function Header() {
           onClick={() => setOpen((v) => !v)}
         >
           <span
-            className={`h-0.5 w-6 bg-white transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
+            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${open ? "translate-y-2 rotate-45" : ""}`}
           />
-          <span className={`h-0.5 w-6 bg-white transition-opacity ${open ? "opacity-0" : ""}`} />
+          <span className={`h-0.5 w-6 bg-white transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
           <span
-            className={`h-0.5 w-6 bg-white transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            className={`h-0.5 w-6 bg-white transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
       </div>
 
-      {open && (
-        <nav
-          className="border-t border-white/5 bg-night/95 px-6 py-6 backdrop-blur-md md:hidden"
-          aria-label="Mobile"
-        >
+      <nav
+        className={`overflow-hidden border-t border-white/5 bg-night/95 backdrop-blur-md transition-all duration-300 ease-in-out md:hidden ${
+          open ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+        aria-label="Mobile"
+        aria-hidden={!open}
+      >
+        <div className="px-6 py-6">
           <ul className="flex flex-col gap-4">
             {NAV.map((item) => (
               <li key={item.href}>
@@ -118,8 +123,8 @@ export default function Header() {
               </a>
             ))}
           </div>
-        </nav>
-      )}
+        </div>
+      </nav>
     </header>
   );
 }

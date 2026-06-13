@@ -14,17 +14,21 @@ const officialStore = site.socials.find((s) => s.platform === "store");
 export default function ContactPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
-          Say hello
-        </p>
-        <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">Contact</h1>
-        <p className="mt-6 max-w-2xl text-lg text-white/70">
-          Want the funk at your venue, festival or party? Got a collaboration
-          idea, or just want to tell us which track keeps you movin&apos;? We
-          read everything.
-        </p>
-      </section>
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -left-32 -top-16 h-80 w-80 rounded-full bg-groove-gold/10 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-20 top-16 h-72 w-72 rounded-full bg-groove-pink/15 blur-3xl" aria-hidden="true" />
+        <section className="relative mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
+            Say hello
+          </p>
+          <h1 className="font-display mt-4 text-5xl text-groove sm:text-7xl">Contact</h1>
+          <p className="mt-6 max-w-2xl text-lg text-white/70">
+            Want the funk at your venue, festival or party? Got a collaboration
+            idea, or just want to tell us which track keeps you movin&apos;? We
+            read everything.
+          </p>
+        </section>
+      </div>
 
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2">
