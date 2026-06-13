@@ -2,6 +2,87 @@
   "_editing": "Add new releases to the front of the 'releases' array. The first release is featured on the home page. Add cover art to /public/releases and set 'cover' to its path (e.g. \"/releases/another-time.jpg\") — when 'cover' is empty the site renders a styled vinyl disc instead. 'year' and per-track 'duration'/'links' are optional and only render when set. 'totalTracks' lets the site show the album size even while the tracklist below is still being filled in. Only add links that actually exist — every entry renders as a live link.",
   "releases": [
     {
+      "slug": "billy-lou",
+      "title": "Billy Lou",
+      "type": "Single",
+      "year": "",
+      "totalTracks": 1,
+      "cover": "",
+      "description": "The second instrumental release from Ange's Rant, produced by Stephen Joyce. Bass by Ange, saxophones by Alex, guitars and keys by Stephen, drums by Lou.",
+      "links": [
+        {
+          "platform": "store",
+          "label": "Buy on the official store — AU $1.99",
+          "url": "https://angesrant.com/music"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Billy Lou",
+          "duration": "3:58",
+          "links": []
+        }
+      ]
+    },
+    {
+      "slug": "neo-soul-351",
+      "title": "Neo Soul 351",
+      "type": "Single",
+      "year": "",
+      "totalTracks": 1,
+      "cover": "",
+      "description": "A new instrumental release produced by Stephen Joyce. Drums by Lou, saxophones by Alex, guitars and keys by Stephen, bass by Ange.",
+      "links": [
+        {
+          "platform": "store",
+          "label": "Buy on the official store — AU $1.99",
+          "url": "https://angesrant.com/track/4529668/neo-soul-351"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Neo Soul 351",
+          "duration": "4:45",
+          "links": [
+            {
+              "platform": "store",
+              "label": "Listen",
+              "url": "https://angesrant.com/track/4529668/neo-soul-351"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "finger-lickin",
+      "title": "Finger Lickin'",
+      "type": "Single",
+      "year": "",
+      "totalTracks": 1,
+      "cover": "",
+      "description": "A funky vocal single featuring the full Ange's Rant lineup — Angelo on bass, Chris on vocals, Alexandre on saxophones and keys, John on guitar, and Lou on drums.",
+      "links": [
+        {
+          "platform": "store",
+          "label": "Buy on the official store — AU $1.99",
+          "url": "https://angesrant.com/track/3959645/finger-lickin"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Finger Lickin'",
+          "duration": "3:29",
+          "links": [
+            {
+              "platform": "store",
+              "label": "Listen",
+              "url": "https://angesrant.com/track/3959645/finger-lickin"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "another-time",
       "title": "Another Time",
       "type": "Album",
