@@ -13,6 +13,12 @@
   "contactEmail": "",
   "socials": [
     {
+      "platform": "youtube",
+      "label": "YouTube",
+      "url": "https://youtube.com/channel/UCkPr6Zy3aoPVX5Yntw39UAQ",
+      "showInHeader": true
+    },
+    {
       "platform": "store",
       "label": "Official Music Store",
       "url": "https://angesrant.com/music",
