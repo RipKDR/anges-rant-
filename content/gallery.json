@@ -1,0 +1,4 @@
+{
+  "_editing": "Add photos from Instagram here. Download the image and place it in /public/gallery/. Set 'src' to the path (e.g. '/gallery/photo1.jpg'), 'alt' to a short description, and optionally 'instagramUrl' to the post URL. Newest photos first — the first photo spans two columns on desktop.",
+  "photos": []
+}

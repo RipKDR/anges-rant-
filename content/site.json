@@ -26,6 +26,12 @@
       "showInHeader": true
     },
     {
+      "platform": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/angesrant/",
+      "showInHeader": true
+    },
+    {
       "platform": "youtube",
       "label": "YouTube",
       "url": "https://youtube.com/channel/UCkPr6Zy3aoPVX5Yntw39UAQ",

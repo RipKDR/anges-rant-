@@ -2,6 +2,7 @@ import siteJson from "@/content/site.json";
 import releasesJson from "@/content/releases.json";
 import membersJson from "@/content/members.json";
 import showsJson from "@/content/shows.json";
+import galleryJson from "@/content/gallery.json";
 
 export type SocialLink = {
   platform: string;
@@ -68,6 +69,16 @@ export const shows: { upcoming: Show[]; past: Show[] } = {
 };
 
 export const featuredRelease: Release | undefined = releases[0];
+
+export type GalleryPhoto = {
+  src: string;
+  alt: string;
+  instagramUrl?: string;
+};
+
+export const gallery: GalleryPhoto[] = (
+  galleryJson as { photos: GalleryPhoto[] }
+).photos;
 
 export function formatShowDate(iso: string): string {
   const date = new Date(`${iso}T00:00:00`);
