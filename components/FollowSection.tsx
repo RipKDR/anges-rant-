@@ -23,8 +23,8 @@ export default function FollowSection() {
     <section className="relative overflow-hidden py-28 sm:py-36">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-groove-pink/[0.06] to-transparent" />
-        <div className="absolute left-1/4 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-groove-pink/15 blur-3xl" />
-        <div className="absolute right-1/4 top-1/2 h-[400px] w-[400px] translate-x-1/2 -translate-y-1/2 rounded-full bg-groove-violet/15 blur-3xl" />
+        <div className="sunburst animate-spin-sun absolute left-1/2 top-1/2 h-[120vh] w-[120vh] -translate-x-1/2 -translate-y-1/2 opacity-50" />
+        <div className="absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-groove-pink/12 blur-3xl" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-groove-pink/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-groove-violet/20 to-transparent" />
       </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Righteous } from "next/font/google";
+import { Outfit, Unbounded } from "next/font/google";
 import { site } from "@/lib/content";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,10 +11,10 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
-const righteous = Righteous({
-  weight: "400",
+const unbounded = Unbounded({
+  weight: ["400", "600", "800"],
   subsets: ["latin"],
-  variable: "--font-righteous",
+  variable: "--font-unbounded",
 });
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://angesrant.com";
@@ -64,7 +64,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${righteous.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${unbounded.variable}`}>
       <body className="grain min-h-screen antialiased">
         <script
           type="application/ld+json"

@@ -13,7 +13,9 @@ import VinylDisc from "@/components/VinylDisc";
 import ListenButtons from "@/components/ListenButtons";
 import FollowSection from "@/components/FollowSection";
 import SectionReveal from "@/components/SectionReveal";
-import { PlayIcon, PlatformIcon } from "@/components/Icons";
+import VideoSection from "@/components/VideoSection";
+import GallerySection from "@/components/GallerySection";
+import { PlayIcon, PlatformIcon, SpotifyIcon } from "@/components/Icons";
 
 export default function HomePage() {
   const nextShow = shows.upcoming[0] ?? null;
@@ -31,53 +33,70 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          <div className="diagonal-stripe absolute inset-0 opacity-[0.025]" />
-          <div className="animate-float absolute -left-48 top-1/4 h-[600px] w-[600px] rounded-full bg-groove-violet/20 blur-3xl" />
-          <div className="animate-float absolute -right-40 top-1/3 h-[500px] w-[500px] rounded-full bg-groove-pink/15 blur-3xl [animation-delay:-3s]" />
-          <div className="animate-float absolute bottom-0 left-1/2 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-groove-orange/10 blur-3xl [animation-delay:-5s]" />
+          <div className="halftone absolute inset-0 opacity-[0.04]" />
+          <div className="diagonal-stripe absolute inset-0 opacity-[0.02]" />
+          <div className="animate-float absolute -left-40 top-1/3 h-[460px] w-[460px] rounded-full bg-groove-violet/15 blur-3xl" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-night to-transparent" />
         </div>
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:py-32">
           {/* Text */}
           <div>
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-groove-gold/30 bg-groove-gold/10 px-4 py-1.5">
+            <div className="rise inline-flex items-center gap-2.5 rounded-full border border-groove-gold/30 bg-groove-gold/10 px-4 py-1.5" style={{ animationDelay: "0.05s" }}>
               <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-groove-gold" />
               <span className="text-xs font-bold uppercase tracking-[0.3em] text-groove-gold">
                 {site.location}
               </span>
             </div>
 
-            <h1 className="font-display mt-6 leading-[0.88] tracking-tight" style={{ fontSize: "clamp(4.5rem,12vw,9rem)" }}>
+            <h1 className="font-display mt-6 font-extrabold leading-[0.82]" style={{ fontSize: "clamp(4rem,11vw,8.5rem)" }}>
               <span className="text-groove block">FUNK.</span>
               <span className="block text-white">SOUL.</span>
               <span className="text-groove block">DISCO.</span>
             </h1>
 
-            <p className="mt-7 max-w-lg text-lg leading-relaxed text-white/60">
+            <p className="rise mt-7 max-w-lg text-lg leading-relaxed text-white/60" style={{ animationDelay: "0.44s" }}>
               {site.shortBio}
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                href="/music"
-                className="bg-groove glow-pink inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-night transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(255,46,166,0.7)]"
-              >
-                <PlayIcon className="h-4 w-4" />
-                Listen Now
-              </Link>
-              <Link
-                href={nextShow ? "/shows" : "/contact"}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white/80 transition-all hover:border-groove-pink hover:text-groove-pink"
-              >
-                {nextShow
-                  ? `Next show: ${formatShowDate(nextShow.date)}`
-                  : "Book the Band →"}
-              </Link>
+            <div className="rise mt-10 space-y-4" style={{ animationDelay: "0.56s" }}>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/music"
+                  className="bg-groove glow-pink inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-night transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(255,46,166,0.7)]"
+                >
+                  <PlayIcon className="h-4 w-4" />
+                  Listen Now
+                </Link>
+                <Link
+                  href={nextShow ? "/shows" : "/contact"}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white/80 transition-all hover:border-groove-pink hover:text-groove-pink"
+                >
+                  {nextShow
+                    ? `Next show: ${formatShowDate(nextShow.date)}`
+                    : "Book the Band →"}
+                </Link>
+              </div>
+              {site.socials.find((s) => s.platform === "spotify") && (
+                <a
+                  href={site.socials.find((s) => s.platform === "spotify")!.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-[#1DB954] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition-all hover:scale-105 hover:bg-[#1ed760] hover:shadow-[0_0_32px_rgba(29,185,84,0.5)]"
+                >
+                  <SpotifyIcon className="h-4 w-4" />
+                  Follow on Spotify
+                </a>
+              )}
             </div>
           </div>
 
           {/* Vinyl */}
-          <div className="relative mx-auto w-72 lg:mx-0 lg:w-full lg:max-w-sm">
+          <div className="rise relative mx-auto w-72 lg:mx-0 lg:w-full lg:max-w-sm" style={{ animationDelay: "0.3s" }}>
+            <div
+              className="groove-rings animate-spin-sun pointer-events-none absolute -inset-12 m-auto"
+              aria-hidden="true"
+            />
             <div
               className="pointer-events-none absolute inset-0 m-auto h-3/4 w-3/4 rounded-full bg-groove-pink/25 blur-3xl"
               aria-hidden="true"
@@ -353,6 +372,10 @@ export default function HomePage() {
           )}
         </section>
       </SectionReveal>
+
+      <VideoSection />
+
+      <GallerySection />
 
       <FollowSection />
     </>
