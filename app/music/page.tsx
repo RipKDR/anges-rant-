@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { releases, releaseMeta } from "@/lib/content";
 import VinylDisc from "@/components/VinylDisc";
 import ListenButtons from "@/components/ListenButtons";
@@ -64,10 +65,11 @@ export default function MusicPage() {
                     style={{ transform: "rotate(-2deg)" }}
                   >
                     {release.cover ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <Image
                         src={release.cover}
                         alt={`${release.title} cover art`}
+                        width={300}
+                        height={300}
                         className="aspect-square w-full rounded-2xl object-cover shadow-[0_18px_60px_rgba(255,46,166,0.3)] transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (

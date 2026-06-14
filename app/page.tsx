@@ -140,11 +140,21 @@ export default function HomePage() {
                   className="mx-auto w-52 lg:mx-0"
                   style={{ transform: "rotate(-3deg)" }}
                 >
-                  <VinylDisc
-                    title={featuredRelease.title.toUpperCase()}
-                    subtitle="Ange's Rant"
-                    className="w-full shadow-[0_24px_80px_rgba(255,46,166,0.4)]"
-                  />
+                  {featuredRelease.cover ? (
+                    <Image
+                      src={featuredRelease.cover}
+                      alt={`${featuredRelease.title} cover art`}
+                      width={300}
+                      height={300}
+                      className="aspect-square w-full rounded-2xl object-cover shadow-[0_24px_80px_rgba(255,46,166,0.4)]"
+                    />
+                  ) : (
+                    <VinylDisc
+                      title={featuredRelease.title.toUpperCase()}
+                      subtitle="Ange's Rant"
+                      className="w-full shadow-[0_24px_80px_rgba(255,46,166,0.4)]"
+                    />
+                  )}
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.3em] text-groove-gold">

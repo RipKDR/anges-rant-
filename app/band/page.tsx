@@ -68,6 +68,15 @@ export default function BandPage() {
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
               <div>
+                <div className="mb-8 overflow-hidden rounded-2xl border border-white/10">
+                  <Image
+                    src="/band-illustration.png"
+                    alt="Ange's Rant — the band"
+                    width={600}
+                    height={450}
+                    className="w-full object-contain"
+                  />
+                </div>
                 <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
                   Origin story
                 </p>

@@ -1,5 +1,5 @@
 {
-  "_editing": "Add new releases to the front of the 'releases' array. The first release is featured on the home page. Add cover art to /public/releases and set 'cover' to its path (e.g. \"/releases/another-time.jpg\") — when 'cover' is empty the site renders a styled vinyl disc instead. 'year' and per-track 'duration'/'links' are optional and only render when set. 'totalTracks' lets the site show the album size even while the tracklist below is still being filled in. Only add links that actually exist — every entry renders as a live link.",
+  "_editing": "Add new releases to the front of the 'releases' array. The first release is featured on the home page. Add cover art to /public/releases and set 'cover' to its path (e.g. \"/releases/another-time.jpg\") \u2014 when 'cover' is empty the site renders a styled vinyl disc instead. 'year' and per-track 'duration'/'links' are optional and only render when set. 'totalTracks' lets the site show the album size even while the tracklist below is still being filled in. Only add links that actually exist \u2014 every entry renders as a live link.",
   "releases": [
     {
       "slug": "billy-lou",
@@ -7,12 +7,12 @@
       "type": "Single",
       "year": "",
       "totalTracks": 1,
-      "cover": "",
+      "cover": "/releases/billy-lou.png",
       "description": "The second instrumental release from Ange's Rant, produced by Stephen Joyce. Bass by Ange, saxophones by Alex, guitars and keys by Stephen, drums by Lou.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store — AU $1.99",
+          "label": "Buy on the official store \u2014 AU $1.99",
           "url": "https://angesrant.com/music"
         }
       ],
@@ -30,12 +30,12 @@
       "type": "Single",
       "year": "",
       "totalTracks": 1,
-      "cover": "",
+      "cover": "/releases/neo-soul-351.jpg",
       "description": "A new instrumental release produced by Stephen Joyce. Drums by Lou, saxophones by Alex, guitars and keys by Stephen, bass by Ange.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store — AU $1.99",
+          "label": "Buy on the official store \u2014 AU $1.99",
           "url": "https://angesrant.com/track/4529668/neo-soul-351"
         }
       ],
@@ -59,12 +59,12 @@
       "type": "Single",
       "year": "",
       "totalTracks": 1,
-      "cover": "",
-      "description": "A funky vocal single featuring the full Ange's Rant lineup — Angelo on bass, Chris on vocals, Alexandre on saxophones and keys, John on guitar, and Lou on drums.",
+      "cover": "/releases/finger-lickin.jpg",
+      "description": "A funky vocal single featuring the full Ange's Rant lineup \u2014 Angelo on bass, Chris on vocals, Alexandre on saxophones and keys, John on guitar, and Lou on drums.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store — AU $1.99",
+          "label": "Buy on the official store \u2014 AU $1.99",
           "url": "https://angesrant.com/track/3959645/finger-lickin"
         }
       ],
@@ -88,12 +88,12 @@
       "type": "Album",
       "year": "",
       "totalTracks": 13,
-      "cover": "",
-      "description": "The debut 13-track digital album from Ange's Rant — a homage to the artists that shaped Ange's musical journey, made possible by the creative contribution and skills of his talented musician friends. Funk, soul and disco/pop with an 80's flavour, front to back.",
+      "cover": "/releases/another-time.jpg",
+      "description": "The debut 13-track digital album from Ange's Rant \u2014 a homage to the artists that shaped Ange's musical journey, made possible by the creative contribution and skills of his talented musician friends. Funk, soul and disco/pop with an 80's flavour, front to back.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store — AU $1.99 a track",
+          "label": "Buy on the official store \u2014 AU $1.99 a track",
           "url": "https://angesrant.com/music"
         }
       ],
