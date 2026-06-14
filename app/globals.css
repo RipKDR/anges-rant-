@@ -11,12 +11,17 @@
   --font-body: var(--font-outfit), sans-serif;
   --animate-spin-slow: spin 9s linear infinite;
   --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 38s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
   @keyframes float {
     0%, 100% { transform: translateY(0) scale(1); }
