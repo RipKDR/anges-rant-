@@ -1,14 +1,15 @@
 import Image from "next/image";
-import { gallery } from "@/lib/content";
+import { getGalleryPhotos } from "@/lib/media";
 import { InstagramIcon } from "@/components/Icons";
 import SectionReveal from "@/components/SectionReveal";
 
 const INSTAGRAM_URL = "https://www.instagram.com/angesrant/";
 
 export default function GallerySection() {
-  if (gallery.length === 0) return null;
+  const photos = getGalleryPhotos();
+  if (photos.length === 0) return null;
 
-  const [hero, ...rest] = gallery;
+  const [hero, ...rest] = photos;
 
   return (
     <SectionReveal>

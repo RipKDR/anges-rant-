@@ -8,6 +8,7 @@ import { PlatformIcon, SpotifyIcon } from "@/components/Icons";
 export const metadata: Metadata = {
   title: "Shows",
   description: "Upcoming Ange's Rant gigs and live dates.",
+  alternates: { canonical: "/shows" },
 };
 
 export default function ShowsPage() {

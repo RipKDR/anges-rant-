@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { site, members } from "@/lib/content";
+import { getBandPhoto } from "@/lib/media";
 import FollowSection from "@/components/FollowSection";
 import SectionReveal from "@/components/SectionReveal";
 
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "The Band",
   description:
     "Meet Ange's Rant — Angelo Pisano and the Melbourne musicians behind the funk.",
+  alternates: { canonical: "/band" },
 };
 
 const accentMap = [
@@ -42,6 +44,8 @@ const accentMap = [
 ];
 
 export default function BandPage() {
+  const bandPhoto = getBandPhoto(site.bandPhoto);
+
   return (
     <>
       <div className="relative overflow-hidden">
@@ -63,12 +67,12 @@ export default function BandPage() {
         </section>
       </div>
 
-      {site.bandPhoto && (
+      {bandPhoto && (
         <SectionReveal>
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-white/10 sm:aspect-[21/9]">
               <Image
-                src={site.bandPhoto}
+                src={bandPhoto}
                 alt="Ange's Rant in the studio"
                 fill
                 priority

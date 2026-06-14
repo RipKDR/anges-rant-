@@ -1,37 +1,28 @@
 # Photo placement guide
 
-Five band photos were chosen for the site. The site is wired so that each one is a
-**drop-in**: save the file at the path below and the matching section lights up. Until a
-file exists, the site falls back gracefully (no broken images), so it always looks finished.
+Five band photos were chosen for the site. **You only have to drop the files in** — the
+gallery and the Band-page banner auto-detect them, so there's no JSON or code to edit.
+Until the files exist, the site falls back gracefully (no broken images), so it always
+looks finished.
 
 > Tip: keep files reasonably sized (long edge ~2000px, JPG ~70–80% quality) so pages stay fast.
+> The filenames below are recommended only because `content/gallery.json` already has matching
+> captions — but **any** filename works; unlisted files just get a caption derived from their name.
 
-| # | Photo | Save it as | What it powers | Final step |
-|---|-------|-----------|----------------|-----------|
-| 1 | Studio group shot — three of the band posed with sax in the studio (landscape) | `public/band/studio.jpg` | Cinematic banner across the top of **The Band** page | Set `"bandPhoto": "/band/studio.jpg"` in `content/site.json` |
-| 2 | Black-and-white live shot of Angelo deep in the groove on bass (square) | `public/gallery/angelo-live-bw.jpg` | **Gallery** tile on the home page | Move its entry from `_planned` to `photos` in `content/gallery.json` |
-| 3 | Studio session — producer at the desk + guitar (portrait) | `public/gallery/studio-session.jpg` | **Gallery** tile on the home page | Move its entry from `_planned` to `photos` in `content/gallery.json` |
-| 4 | Studio trio smiling to camera (landscape) | `public/gallery/studio-trio.jpg` | **Gallery** tile on the home page | Move its entry from `_planned` to `photos` in `content/gallery.json` |
-| 5 | Live duo — Ange + Alex under teal/pink stage lights | `public/gallery/live-neon.jpg` | **Gallery hero** (large tile, spans two columns) | Move its entry from `_planned` to `photos` in `content/gallery.json` |
+| # | Photo | Drop it in as | What it powers |
+|---|-------|--------------|----------------|
+| 1 | Studio group shot — three of the band posed with sax (landscape) | `public/band/studio.jpg` | Cinematic banner across the top of **The Band** page |
+| 5 | Live duo — Ange + Alex under teal/pink stage lights | `public/gallery/live-neon.jpg` | **Gallery hero** (large tile, spans two columns) |
+| 2 | Black-and-white live shot of Angelo on bass (square) | `public/gallery/angelo-live-bw.jpg` | **Gallery** tile on the home page |
+| 3 | Studio session — producer at the desk + guitar (portrait) | `public/gallery/studio-session.jpg` | **Gallery** tile on the home page |
+| 4 | Studio trio smiling to camera (landscape) | `public/gallery/studio-trio.jpg` | **Gallery** tile on the home page |
 
-## Switching the gallery on
+## That's it
 
-`content/gallery.json` already contains the four gallery entries under `_planned`, in display
-order (live-neon is first, so it becomes the large hero tile). Once the image files are in
-`public/gallery/`, move those objects into the `photos` array (or rename `_planned` →
-`photos`). The gallery stays hidden while `photos` is empty, so nothing looks unfinished.
-
-```jsonc
-// content/gallery.json
-{
-  "photos": [
-    { "src": "/gallery/live-neon.jpg",      "alt": "Ange and Alex on stage under neon lights" },
-    { "src": "/gallery/angelo-live-bw.jpg", "alt": "Angelo Pisano deep in the groove on bass" },
-    { "src": "/gallery/studio-session.jpg", "alt": "Tracking a session at the studio" },
-    { "src": "/gallery/studio-trio.jpg",    "alt": "Behind the scenes in the studio" }
-  ]
-}
-```
+Drop the files into `public/gallery/` and `public/band/`, commit, and they appear. The gallery
+shows photos in the order listed in `content/gallery.json` (live-neon first → large hero tile),
+then any extra files alphabetically. Editing `gallery.json` is optional — it only customises
+captions and order.
 
 ## Optional upgrade
 
