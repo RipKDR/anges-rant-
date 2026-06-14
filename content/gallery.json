@@ -1,5 +1,5 @@
 {
-  "_editing": "Photos that render in the home-page gallery grid. Download each image into /public/gallery/, then add an entry to 'photos' (newest first — the first photo spans two columns on desktop). 'instagramUrl' is optional. Entries staged in '_planned' below are ready to go: once the matching files exist in /public/gallery/, move them up into 'photos'. See /PHOTOS.md for the full placement plan.",
+  "_editing": "The home-page gallery now auto-detects any image you drop into /public/gallery/ — no editing needed here. This file is OPTIONAL and only sets nicer captions + display order: a filename listed in 'photos' (or '_planned') uses that caption and is shown first; anything else falls back to a name derived from the filename. The first photo shown spans two columns on desktop. See /PHOTOS.md.",
   "photos": [],
   "_planned": [
     {
