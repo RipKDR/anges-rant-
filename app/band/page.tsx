@@ -63,6 +63,27 @@ export default function BandPage() {
         </section>
       </div>
 
+      {site.bandPhoto && (
+        <SectionReveal>
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-white/10 sm:aspect-[21/9]">
+              <Image
+                src={site.bandPhoto}
+                alt="Ange's Rant in the studio"
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1152px) 100vw, 1152px"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-night/70 via-transparent to-transparent"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        </SectionReveal>
+      )}
+
       <SectionReveal>
         <section className="border-y border-white/[0.06] bg-night-soft/20">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">

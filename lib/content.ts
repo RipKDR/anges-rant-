@@ -19,8 +19,15 @@ export type Site = {
   bio: string[];
   /** Optional — contact/booking CTAs only render when this is set. */
   contactEmail: string;
+  /** Optional wide band/studio photo for the top of the Band page. */
+  bandPhoto?: string;
   socials: SocialLink[];
 };
+
+/** The artist's public Spotify profile URL, if listed in socials. */
+export const spotifyUrl: string | undefined = (siteJson as Site).socials.find(
+  (s) => s.platform === "spotify"
+)?.url;
 
 export type TrackLink = { platform: string; label: string; url: string };
 

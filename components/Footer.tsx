@@ -7,7 +7,7 @@ const NAV = [
   { href: "/music", label: "Music" },
   { href: "/band", label: "The Band" },
   { href: "/shows", label: "Shows" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Book" },
 ];
 
 export default function Footer() {
