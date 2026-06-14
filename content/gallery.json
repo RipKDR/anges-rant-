@@ -1,4 +1,22 @@
 {
-  "_editing": "Add photos from Instagram here. Download the image and place it in /public/gallery/. Set 'src' to the path (e.g. '/gallery/photo1.jpg'), 'alt' to a short description, and optionally 'instagramUrl' to the post URL. Newest photos first — the first photo spans two columns on desktop.",
-  "photos": []
+  "_editing": "Photos that render in the home-page gallery grid. Download each image into /public/gallery/, then add an entry to 'photos' (newest first — the first photo spans two columns on desktop). 'instagramUrl' is optional. Entries staged in '_planned' below are ready to go: once the matching files exist in /public/gallery/, move them up into 'photos'. See /PHOTOS.md for the full placement plan.",
+  "photos": [],
+  "_planned": [
+    {
+      "src": "/gallery/live-neon.jpg",
+      "alt": "Ange and Alex on stage under neon lights"
+    },
+    {
+      "src": "/gallery/angelo-live-bw.jpg",
+      "alt": "Angelo Pisano deep in the groove on bass"
+    },
+    {
+      "src": "/gallery/studio-session.jpg",
+      "alt": "Tracking a session at the studio"
+    },
+    {
+      "src": "/gallery/studio-trio.jpg",
+      "alt": "Behind the scenes in the studio"
+    }
+  ]
 }

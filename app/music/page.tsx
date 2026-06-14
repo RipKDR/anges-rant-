@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { releases, releaseMeta } from "@/lib/content";
+import { releases, releaseMeta, spotifyUrl } from "@/lib/content";
 import VinylDisc from "@/components/VinylDisc";
 import ListenButtons from "@/components/ListenButtons";
 import FollowSection from "@/components/FollowSection";
 import SectionReveal from "@/components/SectionReveal";
+import SpotifySpotlight from "@/components/SpotifySpotlight";
 import { PlatformIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
@@ -46,6 +47,14 @@ export default function MusicPage() {
           </div>
         </section>
       </div>
+
+      {spotifyUrl && (
+        <SectionReveal>
+          <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
+            <SpotifySpotlight spotifyUrl={spotifyUrl} variant="bare" />
+          </div>
+        </SectionReveal>
+      )}
 
       {releases.map((release, index) => (
         <SectionReveal key={release.slug} delay={index * 60}>

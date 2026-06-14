@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { shows, site, formatShowDate } from "@/lib/content";
+import { shows, site, spotifyUrl, formatShowDate } from "@/lib/content";
 import FollowSection from "@/components/FollowSection";
 import SectionReveal from "@/components/SectionReveal";
-import { PlatformIcon } from "@/components/Icons";
+import { PlatformIcon, SpotifyIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Shows",
@@ -129,27 +129,47 @@ export default function ShowsPage() {
                   The stage is<br />being warmed up.
                 </p>
                 <p className="mx-auto mt-6 max-w-md text-lg text-white/50">
-                  No gigs announced right now — follow us on socials to be
-                  the very first to know.
+                  No dates on the board right now. Follow on Spotify and
+                  you&apos;ll be notified the moment we announce a show — and
+                  every time we drop new music.
                 </p>
-                <div className="mt-10 flex flex-wrap justify-center gap-3">
-                  {site.socials.map((s) => (
+                {spotifyUrl && (
+                  <div className="mt-9">
                     <a
-                      key={s.platform}
-                      href={s.url}
+                      href={spotifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-full border border-white/10 bg-night/60 px-5 py-2.5 text-sm font-semibold text-white/60 transition-all hover:border-groove-pink hover:text-groove-pink"
+                      className="inline-flex items-center gap-2.5 rounded-full px-9 py-4 text-sm font-bold uppercase tracking-wider text-black transition-all hover:scale-105"
+                      style={{ background: "#1DB954", boxShadow: "0 0 40px rgba(29,185,84,0.4)" }}
                     >
-                      <PlatformIcon platform={s.platform} className="h-4 w-4" />
-                      {s.label}
+                      <SpotifyIcon className="h-5 w-5" />
+                      Follow on Spotify
                     </a>
-                  ))}
+                  </div>
+                )}
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  {site.socials
+                    .filter((s) => s.platform !== "spotify")
+                    .map((s) => (
+                      <a
+                        key={s.platform}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 rounded-full border border-white/10 bg-night/60 px-5 py-2.5 text-sm font-semibold text-white/60 transition-all hover:border-groove-pink hover:text-groove-pink"
+                      >
+                        <PlatformIcon platform={s.platform} className="h-4 w-4" />
+                        {s.label}
+                      </a>
+                    ))}
                 </div>
-                <div className="mt-10">
+                <div className="mt-10 border-t border-white/[0.06] pt-8">
+                  <p className="mb-4 text-sm text-white/40">
+                    Putting on an event? Bring the funk to your stage.
+                  </p>
                   <Link
                     href="/contact"
-                    className="bg-groove glow-pink inline-block rounded-full px-10 py-4 font-bold uppercase tracking-wider text-night transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(255,46,166,0.6)]"
+                    className="inline-block rounded-full border border-groove-pink/40 px-9 py-3.5 font-bold uppercase tracking-wider text-groove-pink transition-all hover:bg-groove-pink hover:text-night"
                   >
                     Book the band
                   </Link>

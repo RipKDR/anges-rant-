@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit, Unbounded } from "next/font/google";
-import { site } from "@/lib/content";
+import { site, spotifyUrl } from "@/lib/content";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StickyFollowBar from "@/components/StickyFollowBar";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -73,6 +74,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        {spotifyUrl && <StickyFollowBar spotifyUrl={spotifyUrl} />}
         <Analytics />
       </body>
     </html>

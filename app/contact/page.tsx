@@ -3,17 +3,26 @@ import Link from "next/link";
 import { site } from "@/lib/content";
 import FollowSection from "@/components/FollowSection";
 import SectionReveal from "@/components/SectionReveal";
-import { MailIcon, MusicNoteIcon, PlatformIcon } from "@/components/Icons";
+import BookingForm from "@/components/BookingForm";
+import { MailIcon, PlatformIcon, CheckIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Book the Band",
   description:
-    "Bookings, collaborations and good old-fashioned fan mail for Ange's Rant.",
+    "Book Ange's Rant for your venue, festival, private party or corporate event. Live funk, soul and disco from Melbourne.",
 };
 
-const officialStore = site.socials.find((s) => s.platform === "store");
+const WHAT_YOU_GET = [
+  "Full live band — bass, drums, guitar, saxes/keys & vocals",
+  "Funk, soul & disco that fills the floor, 80's flavour throughout",
+  "Flexible sets — one long set or multiple brackets",
+  "Originals from the album plus the grooves people know",
+  "Self-contained & punctual — we make load-in easy",
+];
 
 export default function ContactPage() {
+  const channels = site.socials.filter((s) => s.platform !== "store");
+
   return (
     <>
       <div className="relative overflow-hidden">
@@ -22,135 +31,118 @@ export default function ContactPage() {
           <div className="animate-float absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-groove-gold/10 blur-3xl" />
           <div className="animate-float absolute -right-32 top-1/3 h-[400px] w-[400px] rounded-full bg-groove-pink/15 blur-3xl [animation-delay:-3s]" />
         </div>
-        <section className="relative mx-auto max-w-6xl px-4 pb-16 pt-32 sm:px-6">
+        <section className="relative mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6">
           <p className="text-sm font-bold uppercase tracking-[0.35em] text-groove-gold">
-            Let&apos;s Talk
+            Bookings
           </p>
           <h1
             className="font-display mt-4 leading-[0.85] tracking-tight text-white"
             style={{ fontSize: "clamp(4rem,14vw,11rem)" }}
           >
             BOOK<br />
-            <span className="text-groove">US.</span>
+            <span className="text-groove">THE BAND.</span>
           </h1>
           <p className="mt-8 max-w-xl text-xl leading-relaxed text-white/60">
-            Venues, festivals, private events, corporate parties — we bring
-            the 80&apos;s funk alive for any stage.
+            Venues, festivals, private parties, corporate events — we bring the
+            80&apos;s funk alive for any stage. Tell us what you&apos;re planning
+            and we&apos;ll get straight back to you.
           </p>
         </section>
       </div>
 
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {site.contactEmail ? (
-            <>
-              <SectionReveal>
-                <a
-                  href={`mailto:${site.contactEmail}?subject=Booking%20enquiry%20—%20Ange's%20Rant`}
-                  className="group relative block overflow-hidden rounded-3xl p-px"
-                >
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-groove-orange via-groove-pink to-groove-violet opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
-                  <div className="relative rounded-3xl bg-night-soft/80 p-10 backdrop-blur-sm transition-all group-hover:-translate-y-0.5">
-                    <MailIcon className="h-10 w-10 text-groove-pink" />
-                    <h2 className="font-display mt-6 text-3xl text-white">
-                      Bookings
-                    </h2>
-                    <p className="mt-3 text-white/60">
-                      Venues, festivals, private events — bring the 80&apos;s
-                      flavour to your stage.
-                    </p>
-                    <p className="mt-6 font-semibold text-groove-pink transition-colors group-hover:text-groove-orange">
-                      {site.contactEmail} →
-                    </p>
-                  </div>
-                </a>
-              </SectionReveal>
-              <SectionReveal delay={80}>
-                <a
-                  href={`mailto:${site.contactEmail}?subject=Hello%20from%20the%20website`}
-                  className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-night-soft/50 p-10 transition-all hover:-translate-y-0.5 hover:border-groove-violet/40 hover:shadow-[0_16px_50px_rgba(139,92,246,0.15)]"
-                >
-                  <span className="font-display text-4xl" aria-hidden="true">
-                    👋
-                  </span>
-                  <h2 className="font-display mt-6 text-3xl text-white">
-                    Everything else
-                  </h2>
-                  <p className="mt-3 text-white/60">
-                    Press, collaborations, fan mail and rants of your own —
-                    all welcome.
-                  </p>
-                  <p className="mt-6 font-semibold text-groove-violet transition-colors group-hover:text-groove-pink">
-                    Drop us a line →
-                  </p>
-                </a>
-              </SectionReveal>
-            </>
-          ) : officialStore ? (
-            <SectionReveal className="sm:col-span-2">
-              <a
-                href={officialStore.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block overflow-hidden rounded-3xl p-px sm:col-span-2"
-              >
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-groove-orange via-groove-pink to-groove-violet opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
-                <div className="relative rounded-3xl bg-night-soft/80 p-10 backdrop-blur-sm transition-all group-hover:-translate-y-0.5 sm:p-14">
-                  <MusicNoteIcon className="h-12 w-12 text-groove-pink" />
-                  <h2 className="font-display mt-6 text-4xl text-white sm:text-5xl">
-                    Reach the band
-                  </h2>
-                  <p className="mt-4 max-w-xl text-lg text-white/60">
-                    Bookings, press, collaborations and fan mail all reach us
-                    through the official Ange&apos;s Rant store page — drop a
-                    message and we&apos;ll get back to you.
-                  </p>
-                  <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-groove-pink/30 bg-groove-pink/10 px-6 py-3 text-groove-pink transition-all group-hover:bg-groove-pink group-hover:text-night">
-                    <PlatformIcon platform={officialStore.platform} className="h-5 w-5" />
-                    <span className="font-bold uppercase tracking-wider">
-                      {officialStore.label} →
-                    </span>
-                  </div>
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
+          {/* Form */}
+          <SectionReveal>
+            <div className="relative overflow-hidden rounded-3xl p-px">
+              <div
+                className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-groove-orange via-groove-pink to-groove-violet opacity-25"
+                aria-hidden="true"
+              />
+              <div className="relative rounded-3xl bg-night-soft/80 p-7 backdrop-blur-sm sm:p-10">
+                <h2 className="font-display text-2xl text-white sm:text-3xl">
+                  Send an enquiry
+                </h2>
+                <p className="mt-2 text-sm text-white/50">
+                  Takes a minute. Fields marked * are required.
+                </p>
+                <div className="mt-8">
+                  <BookingForm contactEmail={site.contactEmail} />
                 </div>
-              </a>
-            </SectionReveal>
-          ) : null}
+              </div>
+            </div>
+          </SectionReveal>
+
+          {/* What you get + channels */}
+          <SectionReveal delay={80}>
+            <div className="space-y-6">
+              <div className="rounded-3xl border border-white/[0.08] bg-night-soft/50 p-7 sm:p-8">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-groove-gold">
+                  What you get
+                </p>
+                <ul className="mt-5 space-y-3.5">
+                  {WHAT_YOU_GET.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-relaxed text-white/70">
+                      <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-groove-pink" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {site.contactEmail && (
+                <a
+                  href={`mailto:${site.contactEmail}?subject=Booking%20enquiry%20%E2%80%94%20Ange's%20Rant`}
+                  className="group flex items-center gap-4 rounded-3xl border border-white/[0.08] bg-night-soft/50 p-6 transition-all hover:-translate-y-0.5 hover:border-groove-pink/40"
+                >
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-groove-pink/10">
+                    <MailIcon className="h-6 w-6 text-groove-pink" />
+                  </span>
+                  <span>
+                    <span className="block text-xs font-bold uppercase tracking-[0.25em] text-white/40">
+                      Prefer email?
+                    </span>
+                    <span className="font-semibold text-white transition-colors group-hover:text-groove-pink">
+                      {site.contactEmail}
+                    </span>
+                  </span>
+                </a>
+              )}
+
+              <div className="rounded-3xl border border-white/[0.08] bg-night-soft/50 p-7 sm:p-8">
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white/40">
+                  Find us
+                </p>
+                <div className="flex flex-wrap gap-2.5">
+                  {channels.map((social) => (
+                    <a
+                      key={social.platform}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2.5 rounded-full border border-white/10 bg-night/50 px-4 py-2.5 text-sm font-semibold text-white/60 transition-all hover:border-groove-pink/40 hover:text-groove-pink"
+                    >
+                      <PlatformIcon platform={social.platform} className="h-4 w-4" />
+                      {social.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </SectionReveal>
         </div>
 
-        <SectionReveal delay={120}>
-          <div className="mt-10">
-            <p className="mb-5 text-sm font-bold uppercase tracking-[0.3em] text-white/30">
-              Or find us here
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {site.socials
-                .filter((s) => s.platform !== "store")
-                .map((social) => (
-                  <a
-                    key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 rounded-full border border-white/10 bg-night-soft/50 px-5 py-2.5 text-sm font-semibold text-white/60 transition-all hover:border-groove-pink/40 hover:text-groove-pink"
-                  >
-                    <PlatformIcon platform={social.platform} className="h-4 w-4" />
-                    {social.label}
-                  </a>
-                ))}
-            </div>
-          </div>
-        </SectionReveal>
-
         <SectionReveal delay={160}>
-          <div className="mt-20 flex flex-col items-center gap-5 rounded-3xl border border-white/[0.06] bg-night-soft/20 px-8 py-16 text-center">
+          <div className="mt-16 flex flex-col items-center gap-5 rounded-3xl border border-white/[0.06] bg-night-soft/20 px-8 py-14 text-center">
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-groove-gold">
               While you&apos;re here
             </p>
             <h2 className="font-display text-3xl text-white sm:text-4xl">
-              Have you heard the music?
+              Hear the band before you book
             </h2>
             <p className="max-w-md text-white/55">
-              Four releases of pure funk, soul, and disco. Available everywhere you stream.
+              Four releases of pure funk, soul and disco — give them a spin, then
+              picture them filling your room.
             </p>
             <Link
               href="/music"

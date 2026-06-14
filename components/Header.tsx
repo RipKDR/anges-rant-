@@ -4,21 +4,24 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/content";
-import { PlatformIcon } from "@/components/Icons";
+import { PlatformIcon, SpotifyIcon } from "@/components/Icons";
 
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/music", label: "Music" },
   { href: "/band", label: "The Band" },
   { href: "/shows", label: "Shows" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Book" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const headerSocials = site.socials.filter((s) => s.showInHeader);
+  const headerSocials = site.socials.filter(
+    (s) => s.showInHeader && s.platform !== "spotify"
+  );
+  const spotify = site.socials.find((s) => s.platform === "spotify");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -27,6 +30,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile menu when the route changes (e.g. browser back/forward).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
@@ -84,6 +89,18 @@ export default function Header() {
                 <PlatformIcon platform={social.platform} className="h-5 w-5" />
               </a>
             ))}
+            {spotify && (
+              <a
+                href={spotify.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wider text-black transition-all hover:scale-105"
+                style={{ background: "#1DB954" }}
+              >
+                <SpotifyIcon className="h-4 w-4" />
+                Follow
+              </a>
+            )}
             <Link
               href="/music"
               className="bg-groove glow-pink rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider text-night transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(255,46,166,0.6)]"

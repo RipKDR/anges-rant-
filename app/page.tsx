@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   site,
+  spotifyUrl,
   featuredRelease,
   members,
   shows,
@@ -9,6 +10,7 @@ import {
   releaseMeta,
 } from "@/lib/content";
 import Marquee from "@/components/Marquee";
+import SpotifySpotlight from "@/components/SpotifySpotlight";
 import VinylDisc from "@/components/VinylDisc";
 import ListenButtons from "@/components/ListenButtons";
 import FollowSection from "@/components/FollowSection";
@@ -144,6 +146,13 @@ export default function HomePage() {
       </section>
 
       <Marquee />
+
+      {/* ── Spotify spotlight — primary conversion goal ── */}
+      {spotifyUrl && (
+        <SectionReveal>
+          <SpotifySpotlight spotifyUrl={spotifyUrl} />
+        </SectionReveal>
+      )}
 
       {/* ── Featured Release ── */}
       {featuredRelease && (
