@@ -12,23 +12,19 @@
   --animate-spin-slow: spin 9s linear infinite;
   --animate-marquee: marquee 28s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
 
   @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
   @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0) scale(1);
-    }
-    50% {
-      transform: translateY(-22px) scale(1.04);
-    }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-22px) scale(1.04); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
   }
 }
 
@@ -77,15 +73,34 @@ body {
   box-shadow: 0 0 28px rgba(255, 46, 166, 0.45);
 }
 
-/* Subtle film-grain overlay to give the dark theme texture */
+.glow-gold {
+  box-shadow: 0 0 28px rgba(255, 209, 102, 0.45);
+}
+
+.glow-violet {
+  box-shadow: 0 0 28px rgba(139, 92, 246, 0.45);
+}
+
+/* Film-grain overlay — strengthened for more analog texture */
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.08;
   z-index: 50;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Diagonal retro stripe — use at very low opacity on hero backgrounds */
+.diagonal-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 1) 0px,
+    rgba(255, 255, 255, 1) 1px,
+    transparent 1px,
+    transparent 20px
+  );
 }
 
 /* Vinyl record rendered in CSS for releases without cover art */
@@ -103,12 +118,31 @@ body {
     0 18px 60px rgba(255, 46, 166, 0.22);
 }
 
+/* Scroll-reveal — JS adds .will-animate after mount, then .revealed on intersect */
+.reveal-on-scroll {
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.will-animate {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .reveal-on-scroll,
+  .reveal-on-scroll.will-animate,
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
