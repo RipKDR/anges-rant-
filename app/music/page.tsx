@@ -12,11 +12,48 @@ export const metadata: Metadata = {
   title: "Music",
   description:
     "Listen to Ange's Rant — the debut album Another Time and more. Funk, soul and disco with an 80's flavour.",
+  alternates: { canonical: "/music" },
+};
+
+function isoDuration(d?: string): string | undefined {
+  if (!d) return undefined;
+  const parts = d.split(":").map((n) => parseInt(n, 10));
+  if (parts.some(Number.isNaN)) return undefined;
+  const [m, s] = parts.length === 2 ? parts : [0, parts[0]];
+  return `PT${m}M${s}S`;
+}
+
+const discographyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: releases.map((release, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": release.type.toLowerCase() === "album" ? "MusicAlbum" : "MusicRecording",
+      name: release.title,
+      byArtist: { "@type": "MusicGroup", name: "Ange's Rant" },
+      ...(release.totalTracks ? { numTracks: release.totalTracks } : {}),
+      ...(release.tracks.length
+        ? {
+            track: release.tracks.map((t) => ({
+              "@type": "MusicRecording",
+              name: t.title,
+              ...(isoDuration(t.duration) ? { duration: isoDuration(t.duration) } : {}),
+            })),
+          }
+        : {}),
+    },
+  })),
 };
 
 export default function MusicPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(discographyJsonLd) }}
+      />
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="diagonal-stripe absolute inset-0 opacity-[0.02]" />

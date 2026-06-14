@@ -53,6 +53,11 @@ const structuredData = {
     name: site.location,
   },
   url: BASE,
+  image: `${BASE}/band-illustration.png`,
+  ...(site.contactEmail ? { email: site.contactEmail } : {}),
+  sameAs: site.socials
+    .filter((s) => s.platform !== "store")
+    .map((s) => s.url),
   album: {
     "@type": "MusicAlbum",
     name: "Another Time",

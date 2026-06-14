@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Book the Band",
   description:
     "Book Ange's Rant for your venue, festival, private party or corporate event. Live funk, soul and disco from Melbourne.",
+  alternates: { canonical: "/contact" },
 };
 
 const WHAT_YOU_GET = [
@@ -49,6 +50,28 @@ export default function ContactPage() {
           </p>
         </section>
       </div>
+
+      <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6">
+        <SectionReveal>
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.06] sm:grid-cols-4">
+            {[
+              ["Based in", "Melbourne, AU"],
+              ["Style", "Funk · Soul · Disco"],
+              ["Lineup", "Full live band"],
+              ["Sets", "Flexible brackets"],
+            ].map(([label, value]) => (
+              <div key={label} className="bg-night-soft/80 px-5 py-6 text-center">
+                <dt className="text-[10px] font-bold uppercase tracking-[0.25em] text-groove-gold">
+                  {label}
+                </dt>
+                <dd className="mt-2 font-display text-lg leading-tight text-white">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </SectionReveal>
+      </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">

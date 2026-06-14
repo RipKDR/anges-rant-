@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "The Band",
   description:
     "Meet Ange's Rant — Angelo Pisano and the Melbourne musicians behind the funk.",
+  alternates: { canonical: "/band" },
 };
 
 const accentMap = [
