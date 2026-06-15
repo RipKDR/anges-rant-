@@ -1,5 +1,5 @@
 {
-  "_editing": "Add new releases to the front of the 'releases' array. The first release is featured on the home page. Add cover art to /public/releases and set 'cover' to its path (e.g. \"/releases/another-time.jpg\") \u2014 when 'cover' is empty the site renders a styled vinyl disc instead. 'year' and per-track 'duration'/'links' are optional and only render when set. 'totalTracks' lets the site show the album size even while the tracklist below is still being filled in. Only add links that actually exist \u2014 every entry renders as a live link.",
+  "_editing": "Add new releases to the front of the 'releases' array. The first release is featured on the home page. Add cover art to /public/releases and set 'cover' to its path (e.g. \"/releases/another-time.jpg\") — when 'cover' is empty the site renders a styled vinyl disc instead. 'year' and per-track 'duration'/'links' are optional and only render when set. 'totalTracks' lets the site show the album size even while the tracklist below is still being filled in. 'spotifyEmbedId' is the Spotify album/track ID for the embed player. Only add links that actually exist — every entry renders as a live link.",
   "releases": [
     {
       "slug": "billy-lou",
@@ -8,11 +8,12 @@
       "year": "",
       "totalTracks": 1,
       "cover": "/releases/billy-lou.png",
+      "spotifyEmbedId": "3e9f29LPIvHVwbnVf0zRwm",
       "description": "The second instrumental release from Ange's Rant, produced by Stephen Joyce. Bass by Ange, saxophones by Alex, guitars and keys by Stephen, drums by Lou.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store \u2014 AU $1.99",
+          "label": "Buy on the official store — AU $1.99",
           "url": "https://angesrant.com/music"
         }
       ],
@@ -31,11 +32,12 @@
       "year": "",
       "totalTracks": 1,
       "cover": "/releases/neo-soul-351.jpg",
+      "spotifyEmbedId": "",
       "description": "A new instrumental release produced by Stephen Joyce. Drums by Lou, saxophones by Alex, guitars and keys by Stephen, bass by Ange.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store \u2014 AU $1.99",
+          "label": "Buy on the official store — AU $1.99",
           "url": "https://angesrant.com/track/4529668/neo-soul-351"
         }
       ],
@@ -60,11 +62,12 @@
       "year": "",
       "totalTracks": 1,
       "cover": "/releases/finger-lickin.jpg",
-      "description": "A funky vocal single featuring the full Ange's Rant lineup \u2014 Angelo on bass, Chris on vocals, Alexandre on saxophones and keys, John on guitar, and Lou on drums.",
+      "spotifyEmbedId": "2OSamXdzcwpELcuwDKKXF9",
+      "description": "A funky vocal single featuring the full Ange's Rant lineup — Angelo on bass, Chris on vocals, Alexandre on saxophones and keys, John on guitar, and Lou on drums.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store \u2014 AU $1.99",
+          "label": "Buy on the official store — AU $1.99",
           "url": "https://angesrant.com/track/3959645/finger-lickin"
         }
       ],
@@ -89,26 +92,29 @@
       "year": "",
       "totalTracks": 13,
       "cover": "/releases/another-time.jpg",
-      "description": "The debut 13-track digital album from Ange's Rant \u2014 a homage to the artists that shaped Ange's musical journey, made possible by the creative contribution and skills of his talented musician friends. Funk, soul and disco/pop with an 80's flavour, front to back.",
+      "spotifyEmbedId": "3V10o7hGjiXRUJAjervZK2",
+      "description": "The debut 13-track digital album from Ange's Rant — a homage to the artists that shaped Ange's musical journey, made possible by the creative contribution and skills of his talented musician friends. Funk, soul and disco/pop with an 80's flavour, front to back.",
       "links": [
         {
           "platform": "store",
-          "label": "Buy on the official store \u2014 AU $1.99 a track",
+          "label": "Buy on the official store — AU $1.99 a track",
           "url": "https://angesrant.com/music"
         }
       ],
       "tracks": [
-        {
-          "title": "Fun Cool",
-          "duration": "",
-          "links": [
-            {
-              "platform": "store",
-              "label": "Listen",
-              "url": "https://angesrant.com/track/4204817/fun-cool"
-            }
-          ]
-        }
+        { "title": "Fun Cool", "duration": "", "links": [] },
+        { "title": "Finger Lickin'", "duration": "", "links": [] },
+        { "title": "Chillin'", "duration": "", "links": [] },
+        { "title": "Steppin'", "duration": "", "links": [] },
+        { "title": "Hypnotic", "duration": "", "links": [] },
+        { "title": "Another Time", "duration": "", "links": [] },
+        { "title": "Money Shot", "duration": "", "links": [] },
+        { "title": "Ange's Rant", "duration": "", "links": [] },
+        { "title": "Left Behind", "duration": "", "links": [] },
+        { "title": "Comin In", "duration": "", "links": [] },
+        { "title": "Ziggy", "duration": "", "links": [] },
+        { "title": "Feels Right", "duration": "", "links": [] },
+        { "title": "Hip Hoppin'", "duration": "", "links": [] }
       ]
     }
   ]

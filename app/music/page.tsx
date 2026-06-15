@@ -153,6 +153,24 @@ export default function MusicPage() {
                     {release.description}
                   </p>
 
+                  {release.spotifyEmbedId && (
+                    <div className="mt-10">
+                      <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">
+                        Listen
+                      </p>
+                      <iframe
+                        src={`https://open.spotify.com/embed/album/${release.spotifyEmbedId}?utm_source=generator&theme=0`}
+                        width="100%"
+                        height={release.type === "Album" ? 352 : 152}
+                        frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                        style={{ borderRadius: "12px" }}
+                        title={`Listen to ${release.title} on Spotify`}
+                      />
+                    </div>
+                  )}
+
                   {release.tracks.length > 0 && (
                     <div className="mt-10">
                       <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">

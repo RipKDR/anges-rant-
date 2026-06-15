@@ -44,6 +44,8 @@ export type Release = {
   year?: string;
   totalTracks?: number;
   cover?: string;
+  /** Spotify album/track ID for the embed player. */
+  spotifyEmbedId?: string;
   description: string;
   links: TrackLink[];
   tracks: Track[];
