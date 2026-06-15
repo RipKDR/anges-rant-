@@ -46,6 +46,8 @@ export type Release = {
   cover?: string;
   /** Spotify album/track ID for the embed player. */
   spotifyEmbedId?: string;
+  /** YouTube video ID for the music video embed. */
+  youtubeEmbedId?: string;
   description: string;
   links: TrackLink[];
   tracks: Track[];

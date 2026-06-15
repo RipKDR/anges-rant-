@@ -171,6 +171,28 @@ export default function MusicPage() {
                     </div>
                   )}
 
+                  {release.youtubeEmbedId && (
+                    <div className="mt-10">
+                      <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">
+                        Music Video
+                      </p>
+                      <div className="overflow-hidden rounded-xl" style={{ aspectRatio: "16/9" }}>
+                        <iframe
+                          src={`https://www.youtube.com/embed/${release.youtubeEmbedId}`}
+                          width="100%"
+                          height="100%"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                          loading="lazy"
+                          title={`${release.title} — Music Video`}
+                          style={{ display: "block" }}
+                        />
+                      </div>
+                    </div>
+                  )}
+
                   {release.tracks.length > 0 && (
                     <div className="mt-10">
                       <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/content";
 import { PlatformIcon, SpotifyIcon } from "@/components/Icons";
@@ -51,9 +52,17 @@ export default function Header() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           <Link
             href="/"
-            className="font-display text-xl tracking-wide text-groove sm:text-2xl"
+            className="flex items-center"
+            aria-label="Ange's Rant — Home"
           >
-            ANGE&apos;S RANT
+            <Image
+              src="/logo.png"
+              alt="Ange's Rant"
+              width={80}
+              height={80}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
