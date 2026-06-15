@@ -5,13 +5,40 @@
   "location": "Melbourne, Australia",
   "shortBio": "Groove-based sounds from Melbourne — funk and soul with a splash of disco/pop and an 80's flavour. Always quirky, always fun, with one mission: keeping you movin'.",
   "bio": [
-    "Ange's Rant is the brainchild of Angelo Pisano, a bass player from Melbourne, Australia. After many years holding down the low end in cover bands, Ange decided it was time to pay homage to the artists that shaped his musical journey — and to do it his way.",
-    "The result is groove-based music that touches on funk, soul and disco/pop with an unmistakable 80's flavour. It's quirky, it's fun, and it's built from the ground up to keep you movin'.",
-    "The debut digital album, Another Time, is a 13-track release made possible by the creative contribution and skills of Ange's talented musician friends."
+    "Ange's Rant is the brainchild of Angelo Pisano, a bass player from Melbourne, Australia. After many years playing in cover bands, a decision was made to pay homage to the artists that have shaped his musical journey — and to do it his way.",
+    "The music is groove-based, touching on funk, soul and disco/pop with an unmistakable 80's flavour — always quirky and fun, with an emphasis on keeping you movin'.",
+    "The debut 13-track album Another Time was made possible through the collaboration of multi-instrumentalist Alexandre Lourie on tenor, alto and soprano saxophone, flute, electronic saxophone and keys; guitarist John Azzopardi laying down all the guitar parts and funky wah sounds; lyricist and vocalist Chris Birdman applying the stories to the grooves; and Lou Harbis laying down all the drums with his unique style. Special mentions to French pianist Vincent Camus for keys on 'Ange's Rant', and Joe Casamento for his synth arrangement on 'Another Time'.",
+    "With the intention to keep adding new music, the band continues to record and release new tracks with the very talented Stephen Joyce — producer, guitarist and keyboardist."
   ],
-  "_contactNote": "Optional. When set, booking/contact cards and buttons appear across the site. Leave empty until the band has a real inbox for enquiries.",
-  "contactEmail": "",
+  "_contactNote": "When set, booking/contact cards and buttons appear across the site. This is also the inbox the booking form delivers to (via Resend — see .env.example).",
+  "contactEmail": "angesrant@outlook.com",
+  "_bandPhotoNote": "Optional wide band/studio photo for the top of the Band page. Drop the file in /public/band/ and set the path here (e.g. \"/band/studio.jpg\"). Leave empty to fall back to the illustration.",
+  "bandPhoto": "",
   "socials": [
+    {
+      "platform": "spotify",
+      "label": "Spotify",
+      "url": "https://open.spotify.com/artist/3vjRWXHhOqk1YCy4jgmnQO",
+      "showInHeader": true
+    },
+    {
+      "platform": "facebook",
+      "label": "Facebook",
+      "url": "https://www.facebook.com/share/1UvADCrp6g/",
+      "showInHeader": true
+    },
+    {
+      "platform": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/angesrant/",
+      "showInHeader": true
+    },
+    {
+      "platform": "youtube",
+      "label": "YouTube",
+      "url": "https://youtube.com/channel/UCkPr6Zy3aoPVX5Yntw39UAQ",
+      "showInHeader": true
+    },
     {
       "platform": "store",
       "label": "Official Music Store",

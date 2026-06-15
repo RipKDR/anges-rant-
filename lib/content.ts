@@ -2,6 +2,7 @@ import siteJson from "@/content/site.json";
 import releasesJson from "@/content/releases.json";
 import membersJson from "@/content/members.json";
 import showsJson from "@/content/shows.json";
+import galleryJson from "@/content/gallery.json";
 
 export type SocialLink = {
   platform: string;
@@ -18,8 +19,15 @@ export type Site = {
   bio: string[];
   /** Optional — contact/booking CTAs only render when this is set. */
   contactEmail: string;
+  /** Optional wide band/studio photo for the top of the Band page. */
+  bandPhoto?: string;
   socials: SocialLink[];
 };
+
+/** The artist's public Spotify profile URL, if listed in socials. */
+export const spotifyUrl: string | undefined = (siteJson as Site).socials.find(
+  (s) => s.platform === "spotify"
+)?.url;
 
 export type TrackLink = { platform: string; label: string; url: string };
 
@@ -68,6 +76,16 @@ export const shows: { upcoming: Show[]; past: Show[] } = {
 };
 
 export const featuredRelease: Release | undefined = releases[0];
+
+export type GalleryPhoto = {
+  src: string;
+  alt: string;
+  instagramUrl?: string;
+};
+
+export const gallery: GalleryPhoto[] = (
+  galleryJson as { photos: GalleryPhoto[] }
+).photos;
 
 export function formatShowDate(iso: string): string {
   const date = new Date(`${iso}T00:00:00`);

@@ -7,35 +7,62 @@
   --color-groove-orange: #ff7a18;
   --color-groove-gold: #ffd166;
   --color-groove-violet: #8b5cf6;
-  --font-display: var(--font-righteous), sans-serif;
+  --color-groove-cream: #f7ecd9;
+  --font-display: var(--font-unbounded), sans-serif;
   --font-body: var(--font-outfit), sans-serif;
   --animate-spin-slow: spin 9s linear infinite;
+  --animate-spin-sun: spin 80s linear infinite;
   --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 38s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
+  --animate-shimmer: shimmer 6s linear infinite;
 
   @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
   @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0) scale(1);
-    }
-    50% {
-      transform: translateY(-22px) scale(1.04);
-    }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-22px) scale(1.04); }
   }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+  @keyframes shimmer {
+    to { background-position: 200% center; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Orchestrated page-load entrance — stagger with inline animation-delay */
+.rise {
+  opacity: 0;
+  animation: rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--color-night);
   color: #f4f0fa;
   font-family: var(--font-body);
+  /* Warm radial wash anchored top-centre — the room behind the band, not a flat void */
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(255, 122, 24, 0.12), transparent 55%),
+    radial-gradient(90% 70% at 85% 8%, rgba(139, 92, 246, 0.1), transparent 50%),
+    radial-gradient(70% 60% at 10% 0%, rgba(255, 46, 166, 0.08), transparent 55%);
+  background-attachment: fixed;
 }
 
 ::selection {
@@ -43,22 +70,35 @@ body {
   color: var(--color-night);
 }
 
-.font-display {
-  font-family: var(--font-display);
+/* Keyboard focus ring — the gold highlight, not a default blue box */
+:focus-visible {
+  outline: 2px solid var(--color-groove-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* Signature gradient text used for headings and the wordmark */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Signature gradient text — now a slow living shimmer across the wordmark */
 .text-groove {
   background: linear-gradient(
     100deg,
     var(--color-groove-gold) 0%,
-    var(--color-groove-orange) 35%,
-    var(--color-groove-pink) 70%,
-    var(--color-groove-violet) 100%
+    var(--color-groove-orange) 28%,
+    var(--color-groove-pink) 55%,
+    var(--color-groove-violet) 80%,
+    var(--color-groove-gold) 100%
   );
+  background-size: 200% auto;
+  background-position: 50% center;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: var(--animate-shimmer);
 }
 
 .bg-groove {
@@ -73,15 +113,74 @@ body {
   box-shadow: 0 0 28px rgba(255, 46, 166, 0.45);
 }
 
-/* Subtle film-grain overlay to give the dark theme texture */
+.glow-gold {
+  box-shadow: 0 0 28px rgba(255, 209, 102, 0.45);
+}
+
+.glow-violet {
+  box-shadow: 0 0 28px rgba(139, 92, 246, 0.45);
+}
+
+/* Film-grain overlay — strengthened for more analog texture */
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.08;
   z-index: 50;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Soft edge vignette — pulls focus inward, like a spotlit stage */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 49;
+  background: radial-gradient(120% 100% at 50% 40%, transparent 55%, rgba(5, 2, 12, 0.55) 100%);
+}
+
+/* ── 70s record-sleeve texture system ─────────────────────────────── */
+
+/* Sunburst rays — conic spokes radiating from a point. Pair with .animate-spin-sun. */
+.sunburst {
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 209, 102, 0.22) 0deg 5deg,
+    transparent 5deg 18deg
+  );
+  -webkit-mask-image: radial-gradient(closest-side, transparent 28%, #000 46%, transparent 82%);
+  mask-image: radial-gradient(closest-side, transparent 28%, #000 46%, transparent 82%);
+}
+
+/* Concentric grooves — the rings pressed into a vinyl record */
+.groove-rings {
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05) 0 1px,
+    transparent 1px 7px
+  );
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 75%);
+  mask-image: radial-gradient(closest-side, #000 30%, transparent 75%);
+}
+
+/* Halftone dot field — print-style shading from the album-art era */
+.halftone {
+  background-image: radial-gradient(rgba(255, 122, 24, 0.5) 1px, transparent 1.4px);
+  background-size: 11px 11px;
+}
+
+/* Diagonal retro stripe — use at very low opacity on hero backgrounds */
+.diagonal-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 1) 0px,
+    rgba(255, 255, 255, 1) 1px,
+    transparent 1px,
+    transparent 20px
+  );
 }
 
 /* Vinyl record rendered in CSS for releases without cover art */
@@ -99,12 +198,41 @@ body {
     0 18px 60px rgba(255, 46, 166, 0.22);
 }
 
+/* Subtle sheen sweeping across a vinyl disc, suggesting a light source */
+.vinyl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.1) 48%, transparent 58%);
+  pointer-events: none;
+}
+
+/* Scroll-reveal — JS adds .will-animate after mount, then .revealed on intersect */
+.reveal-on-scroll {
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.will-animate {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .reveal-on-scroll,
+  .reveal-on-scroll.will-animate,
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

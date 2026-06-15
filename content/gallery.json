@@ -1,0 +1,22 @@
+{
+  "_editing": "The home-page gallery now auto-detects any image you drop into /public/gallery/ — no editing needed here. This file is OPTIONAL and only sets nicer captions + display order: a filename listed in 'photos' (or '_planned') uses that caption and is shown first; anything else falls back to a name derived from the filename. The first photo shown spans two columns on desktop. See /PHOTOS.md.",
+  "photos": [],
+  "_planned": [
+    {
+      "src": "/gallery/live-neon.jpg",
+      "alt": "Ange and Alex on stage under neon lights"
+    },
+    {
+      "src": "/gallery/angelo-live-bw.jpg",
+      "alt": "Angelo Pisano deep in the groove on bass"
+    },
+    {
+      "src": "/gallery/studio-session.jpg",
+      "alt": "Tracking a session at the studio"
+    },
+    {
+      "src": "/gallery/studio-trio.jpg",
+      "alt": "Behind the scenes in the studio"
+    }
+  ]
+}

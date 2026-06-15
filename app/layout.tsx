@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Outfit, Righteous } from "next/font/google";
-import { site } from "@/lib/content";
+import { Outfit, Unbounded } from "next/font/google";
+import { site, spotifyUrl } from "@/lib/content";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StickyFollowBar from "@/components/StickyFollowBar";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -10,10 +12,10 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
-const righteous = Righteous({
-  weight: "400",
+const unbounded = Unbounded({
+  weight: ["400", "600", "800"],
   subsets: ["latin"],
-  variable: "--font-righteous",
+  variable: "--font-unbounded",
 });
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://angesrant.com";
@@ -51,6 +53,11 @@ const structuredData = {
     name: site.location,
   },
   url: BASE,
+  image: `${BASE}/band-illustration.png`,
+  ...(site.contactEmail ? { email: site.contactEmail } : {}),
+  sameAs: site.socials
+    .filter((s) => s.platform !== "store")
+    .map((s) => s.url),
   album: {
     "@type": "MusicAlbum",
     name: "Another Time",
@@ -63,7 +70,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${righteous.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${unbounded.variable}`}>
       <body className="grain min-h-screen antialiased">
         <script
           type="application/ld+json"
@@ -72,6 +79,8 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        {spotifyUrl && <StickyFollowBar spotifyUrl={spotifyUrl} />}
+        <Analytics />
       </body>
     </html>
   );
